@@ -1,12 +1,12 @@
 package com.ym.dao;
 
-import java.util.Date;
+//import java.util.Date;
 
 import java.util.List;
 
 import org.junit.Test;
 
-import org.junit.runner.RunWith;
+//import org.junit.runner.RunWith;
 
 import org.slf4j.Logger;
 
@@ -31,7 +31,6 @@ public class IUserDaoTest {
 	private Logger logger = LoggerFactory.getLogger(IUserDaoTest.class);
 
 	@Autowired
-
 	private IUserDao userDao;
 
 	@Test
