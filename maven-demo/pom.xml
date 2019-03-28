@@ -11,97 +11,60 @@
 	<dependencies>
 
 		<!-- 使用junit4 -->
-
 		<dependency>
-
 			<groupId>junit</groupId>
-
 			<artifactId>junit</artifactId>
-
 			<version>4.11</version>
-
 			<scope>test</scope>
-
 		</dependency>
 
 		<dependency>
-
 			<groupId>javax.servlet</groupId>
-
 			<artifactId>javax.servlet-api</artifactId>
-
 			<version>3.1.0</version>
-
 			<!-- 只在编译和测试时运行 -->
-
 			<scope>provided</scope>
-
 		</dependency>
-
-
-
 		<!-- 补全项目依赖 -->
-
 		<!-- 1:日志 slf4j是规范/接口 日志实现:log4j,logback,common-logging 这里使用:slf4j + log4j -->
-
 		<dependency>
-
 			<groupId>org.slf4j</groupId>
-
 			<artifactId>slf4j-log4j12</artifactId>
-
 			<version>1.7.2</version>
-
 		</dependency>
 
 		<!-- 2:数据库相关依赖 -->
-
 		<dependency>
-
 			<groupId>mysql</groupId>
-
 			<artifactId>mysql-connector-java</artifactId>
-
 			<version>5.1.39</version>
-
 			<scope>runtime</scope>
-
 		</dependency>
 
 		<!-- c3p0数据库连接池 -->
-
 		<dependency>
-
 			<groupId>c3p0</groupId>
-
 			<artifactId>c3p0</artifactId>
-
 			<version>0.9.1.2</version>
-
 		</dependency>
 
 		<!-- 3:DAO框架依赖：MyBatis依赖 -->
-
 		<dependency>
-
 			<groupId>org.mybatis</groupId>
-
 			<artifactId>mybatis</artifactId>
-
 			<version>3.3.0</version>
-
 		</dependency>
-
-		<!-- MyBatis自身实现的spring整合依赖 -->
-
+		<!--mybatis 依赖的 插件 -->
 		<dependency>
-
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.4</version>
+		</dependency>
+		<!-- MyBatis自身实现的spring整合依赖 -->
+		<dependency>
 			<groupId>org.mybatis</groupId>
-
 			<artifactId>mybatis-spring</artifactId>
-
 			<version>1.2.3</version>
-
 		</dependency>
 
 		<!-- 4:spring依赖 -->
@@ -125,7 +88,12 @@
 			<artifactId>spring-context</artifactId>
 			<version>4.1.7.RELEASE</version>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.1.7.RELEASE</version>
+		</dependency>
 		<!-- 2) spring dao层依赖 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -139,17 +107,22 @@
 			<version>4.1.7.RELEASE</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>5.1.5.RELEASE</version>
-		</dependency>
 
 
 	</dependencies>
 
 	<build>
 		<finalName>maven-demo</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<path>/</path>
+					<port>8080</port>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
+
 </project>
