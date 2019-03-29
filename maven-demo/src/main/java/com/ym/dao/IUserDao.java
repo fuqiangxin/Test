@@ -9,5 +9,13 @@ import com.ym.entity.User;
 @Repository
 public interface IUserDao {
 
+	int saveUser(User user);
+
+	int updateUser();
+
+	int dateleUser();
+
+	User selectById();
+
 	List<User> selectAllUser();
 }

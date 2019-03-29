@@ -21,25 +21,31 @@
 	</resultMap>
 
 	<!-- 插入数据后获得自增主键的值 -->
-
-	<!-- <insert id="insert" keyProperty="id" keyColumn="user_id"> INSERT INTO 
-		tb_user (user_name,user_birthday,user_salary) VALUES (#{name},#{birthday},#{salary}) 
-		</insert> -->
+	<insert id="saveUser" keyProperty="id" keyColumn="user_id"
+		parameterType="com.ym.entity.User"> INSERT INTO
+		t_user (user_name,user_password,user_email)
+		VALUES
+		(#{userName},#{userPassword},#{userEmail})
+	</insert>
 
 	<!-- 修改用户内容 -->
-
-	<!-- <update id="update"> UPDATE tb_user SET user_name=#{name}, user_birthday=#{birthday}, 
-		user_salary=#{salary} WHERE user_id=#{id} </update> -->
+	<update id="updateUser"> UPDATE t_user SET user_name=#{userName},
+		user_password=#{userPassword},
+		user_email=#{userEmail} WHERE
+		user_id=#{userId}
+	</update>
 
 	<!-- 根据id删除用户 -->
+	<delete id="deleteUser"> DELETE FROM t_user WHERE user_id=#{userId} </delete>
 
-	<!-- <delete id="delete"> DELETE FROM tb_user WHERE user_id=#{id} </delete> -->
 	<!-- 根据id查询用户 -->
-	<!-- <select id="findById" resultMap="userResult"> SELECT user_id,user_name,user_birthday,user_salary 
-		FROM tb_user WHERE user_id=#{id} </select> -->
+	<select id="selectById" resultMap="userResult"> SELECT
+		user_id,user_name,user_password,user_email
+		FROM t_user WHERE
+		user_id=#{userId}
+	</select>
 
 	<!-- 查询所有用户 -->
-
 	<select id="selectAllUser" resultMap="userResult">
 		SELECT
 		user_id,user_name,user_password,user_email FROM t_user

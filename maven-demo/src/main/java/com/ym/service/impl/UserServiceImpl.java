@@ -18,23 +18,39 @@ public class UserServiceImpl implements IUserService {
 	@Autowired
 	private IUserDao userDao;
 
-	public UserServiceImpl() {
-		System.out.println("jinlail");
-	}
-
 	public List<User> selectAllUser() {
-		logger.info("查询所有.......");
+		logger.info("进入selectAllUser");
 		List<User> users = userDao.selectAllUser();
-		for (User user : users) {
-			System.out.println(user.getUserId());
-		}
 		logger.info("all the users={}", users);
 		return users;
 	}
 
-	public String testselect() {
-		return "恒成立";
+	public boolean saveUser(User user) {
+		logger.info("进入saveUser(0");
+		boolean isSaveflag = userDao.saveUser(user) == 1 ? true : false;
+		logger.info("isSaveflag={}", isSaveflag);
+		return isSaveflag;
 	}
 
+	public boolean updateUser() {
+		logger.info("进入updateUser()");
+		boolean isUpdateflag = userDao.updateUser() == 1 ? true : false;
+		logger.info("isUpdateflag={}", isUpdateflag);
+		return isUpdateflag;
+	}
+
+	public boolean dateleUser() {
+		logger.info("进入dateleUser()");
+		boolean isDateleflag = userDao.dateleUser() == 1 ? true : false;
+		logger.info("isSaveflag={}", isDateleflag);
+		return isDateleflag;
+	}
+
+	public User selectById() {
+		logger.info("进入selectById()");
+		User user = userDao.selectById();
+		logger.info("select the user={}", user);
+		return user;
+	}
 
 }

@@ -18,8 +18,14 @@ public class UserController {
 	private IUserService userService;
 
 	@ResponseBody
-	@RequestMapping("/select")
+	@RequestMapping("/selectAllUser")
 	public List<User> selectAllUser() {
 		return userService.selectAllUser();
+	}
+
+	@ResponseBody
+	@RequestMapping("/saveUser")
+	public boolean saveUser(User user) {
+		return userService.saveUser(user);
 	}
 }
