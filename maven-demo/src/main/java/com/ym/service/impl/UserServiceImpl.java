@@ -26,7 +26,7 @@ public class UserServiceImpl implements IUserService {
 		logger.info("²éÑ¯ËùÓĞ.......");
 		List<User> users = userDao.selectAllUser();
 		for (User user : users) {
-			System.out.println(user.getUser_name());
+			System.out.println(user.getUserId());
 		}
 		logger.info("all the users={}", users);
 		return users;

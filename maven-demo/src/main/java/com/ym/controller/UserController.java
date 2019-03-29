@@ -18,7 +18,7 @@ public class UserController {
 	private IUserService userService;
 
 	@ResponseBody
-	@RequestMapping("/selectAll")
+	@RequestMapping("/select")
 	public List<User> selectAllUser() {
 		return userService.selectAllUser();
 	}

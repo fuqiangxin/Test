@@ -14,10 +14,10 @@
 
 	<resultMap type="com.ym.entity.User" id="userResult">
 		<!-- 其中id为主键，result为普通字段 property对应实体类属性，column对应字段名（更准确的说应该是查询结果集中的字段名） -->
-		<id property="id" column="user_id" />
-		<result property="name" column="user_name" />
-		<result property="password" column="user_password" />
-		<result property="email" column="user_email" />
+		<id property="userId" column="user_id" />
+		<result property="userName" column="user_name" />
+		<result property="userPassword" column="user_password" />
+		<result property="userEmail" column="user_email" />
 	</resultMap>
 
 	<!-- 插入数据后获得自增主键的值 -->
